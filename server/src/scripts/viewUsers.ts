@@ -1,7 +1,11 @@
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 import path from 'path';
+import { fileURLToPath } from 'url';
 import User from '../models/User';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 // Load env vars from server/.env
 dotenv.config({ path: path.resolve(__dirname, '../../.env') });
@@ -20,7 +24,7 @@ const viewUsers = async () => {
         if (users.length === 0) {
             console.log('No users found.');
         } else {
-            console.table(users.map(u => ({
+            console.table(users.map((u: any) => ({
                 id: u._id.toString(),
                 name: u.name,
                 email: u.email,
