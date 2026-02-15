@@ -88,18 +88,6 @@ Visit `http://localhost:5173` in your browser to start using FinVault!
 
 ---
 
-## 📸 Screenshots
-
-| **Dashboard** | **Transactions** |
-| :---: | :---: |
-| ![Dashboard View](https://via.placeholder.com/600x400?text=Dashboard+Overview) | ![Transactions View](https://via.placeholder.com/600x400?text=Transaction+History) |
-
-| **Tax Planner** | **Goal Setting** |
-| :---: | :---: |
-| ![Tax Planner View](https://via.placeholder.com/600x400?text=Tax+Regime+Comparison) | ![Goal Setting View](https://via.placeholder.com/600x400?text=Financial+Goals) |
-
----
-
 ## 🔮 Future Roadmap
 
 -   [ ] **Mobile App**: Native Android/iOS app using React Native.
@@ -110,5 +98,5 @@ Visit `http://localhost:5173` in your browser to start using FinVault!
 ---
 
 <p align="center">
-  Built with ❤️ by <b>Shreya Barla and Team</b>
+  Built by <b>Shreya Barla and Team</b>
 </p>
