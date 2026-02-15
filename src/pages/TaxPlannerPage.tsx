@@ -7,6 +7,7 @@ import { TaxDataDialog } from "@/components/forms/TaxDataDialog";
 import {
   BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Legend,
 } from "recharts";
+import { getApiUrl } from "@/lib/api";
 
 interface TaxData {
   grossIncome: number;
@@ -44,7 +45,7 @@ const TaxPlannerPage = () => {
   const fetchTaxData = async () => {
     try {
       const token = localStorage.getItem("token");
-      const response = await fetch("http://localhost:5000/api/tax/data?financialYear=2025-26", {
+      const response = await fetch(getApiUrl("/api/tax/data?financialYear=2025-26"), {
         headers: {
           "Authorization": `Bearer ${token}`,
         },
@@ -68,7 +69,7 @@ const TaxPlannerPage = () => {
   const calculateTax = async (data: TaxData) => {
     try {
       const token = localStorage.getItem("token");
-      const response = await fetch("http://localhost:5000/api/tax/calculate", {
+      const response = await fetch(getApiUrl("/api/tax/calculate"), {
         method: "POST",
         headers: {
           "Authorization": `Bearer ${token}`,

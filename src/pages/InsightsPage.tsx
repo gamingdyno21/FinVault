@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import {
   AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer,
 } from "recharts";
+import { getApiUrl } from "@/lib/api";
 
 interface Pattern {
   category: string;
@@ -52,13 +53,13 @@ const InsightsPage = () => {
       const token = localStorage.getItem("token");
 
       const [patternsRes, predictionsRes, recommendationsRes] = await Promise.all([
-        fetch("http://localhost:5000/api/insights/patterns", {
+        fetch(getApiUrl("/api/insights/patterns"), {
           headers: { "Authorization": `Bearer ${token}` },
         }),
-        fetch("http://localhost:5000/api/insights/predictions", {
+        fetch(getApiUrl("/api/insights/predictions"), {
           headers: { "Authorization": `Bearer ${token}` },
         }),
-        fetch("http://localhost:5000/api/insights/recommendations", {
+        fetch(getApiUrl("/api/insights/recommendations"), {
           headers: { "Authorization": `Bearer ${token}` },
         }),
       ]);

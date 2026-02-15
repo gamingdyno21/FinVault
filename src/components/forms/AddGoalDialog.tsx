@@ -12,6 +12,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { getApiUrl } from "@/lib/api";
 
 const goalSchema = z.object({
     name: z.string().min(1, "Name is required"),
@@ -47,7 +48,7 @@ export function AddGoalDialog({ open, onOpenChange, onSuccess }: AddGoalDialogPr
         setLoading(true);
         try {
             const token = localStorage.getItem("token");
-            const response = await fetch("http://localhost:5000/api/goals", {
+            const response = await fetch(getApiUrl("/api/goals"), {
                 method: "POST",
                 headers: {
                     "Authorization": `Bearer ${token}`,

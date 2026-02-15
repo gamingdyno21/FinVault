@@ -6,6 +6,7 @@ import { z } from "zod";
 import { motion } from "framer-motion";
 import { Eye, EyeOff, Loader2, BarChart3, ArrowRight, CheckCircle2 } from "lucide-react";
 
+import { getApiUrl } from "@/lib/api";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -60,7 +61,7 @@ const AuthPage = () => {
     const onSignIn = async (data: SignInValues) => {
         setIsLoading(true);
         try {
-            const response = await fetch("http://localhost:5000/api/auth/signin", {
+            const response = await fetch(getApiUrl("/api/auth/signin"), {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(data),
@@ -92,7 +93,7 @@ const AuthPage = () => {
     const onSignUp = async (data: SignUpValues) => {
         setIsLoading(true);
         try {
-            const response = await fetch("http://localhost:5000/api/auth/signup", {
+            const response = await fetch(getApiUrl("/api/auth/signup"), {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({

@@ -12,6 +12,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { getApiUrl } from "@/lib/api";
 
 const taxDataSchema = z.object({
     grossIncome: z.string().min(1, "Gross income is required"),
@@ -59,7 +60,7 @@ export function TaxDataDialog({ open, onOpenChange, onSuccess }: TaxDataDialogPr
     const fetchTaxData = async () => {
         try {
             const token = localStorage.getItem("token");
-            const response = await fetch("http://localhost:5000/api/tax/data?financialYear=2025-26", {
+            const response = await fetch(getApiUrl("/api/tax/data?financialYear=2025-26"), {
                 headers: {
                     "Authorization": `Bearer ${token}`,
                 },
@@ -95,7 +96,7 @@ export function TaxDataDialog({ open, onOpenChange, onSuccess }: TaxDataDialogPr
                 financialYear: "2025-26",
             };
 
-            const response = await fetch("http://localhost:5000/api/tax/data", {
+            const response = await fetch(getApiUrl("/api/tax/data"), {
                 method: "PUT",
                 headers: {
                     "Authorization": `Bearer ${token}`,
