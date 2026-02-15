@@ -12,7 +12,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { getApiUrl } from "@/lib/api";
+import { apiUrl } from "@/lib/api";
 import {
     Select,
     SelectContent,
@@ -57,7 +57,7 @@ export function AddInvestmentDialog({ open, onOpenChange, onSuccess }: AddInvest
         setLoading(true);
         try {
             const token = localStorage.getItem("token");
-            const response = await fetch(getApiUrl("/api/investments"), {
+            const response = await fetch(apiUrl("/api/investments"), {
                 method: "POST",
                 headers: {
                     "Authorization": `Bearer ${token}`,

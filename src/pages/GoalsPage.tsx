@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
 import { useState, useEffect } from "react";
 import { AddGoalDialog } from "@/components/forms/AddGoalDialog";
-import { getApiUrl } from "@/lib/api";
+import { apiUrl } from "@/lib/api";
 
 interface Goal {
   _id: string;
@@ -29,7 +29,7 @@ const GoalsPage = () => {
   const fetchGoals = async () => {
     try {
       const token = localStorage.getItem("token");
-      const response = await fetch(getApiUrl("/api/goals"), {
+      const response = await fetch(apiUrl("/api/goals"), {
         headers: {
           "Authorization": `Bearer ${token}`,
         },

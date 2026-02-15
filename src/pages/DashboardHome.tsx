@@ -9,7 +9,7 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { AddTransactionDialog } from "@/components/forms/AddTransactionDialog";
-import { getApiUrl } from "@/lib/api";
+import { apiUrl } from "@/lib/api";
 import {
   AreaChart,
   Area,
@@ -183,7 +183,7 @@ const DashboardHome = () => {
       const token = localStorage.getItem("token");
       if (!token) return;
 
-      const response = await fetch(getApiUrl("/api/transactions"), {
+      const response = await fetch(apiUrl("/api/transactions"), {
         headers: { Authorization: `Bearer ${token}` },
       });
 

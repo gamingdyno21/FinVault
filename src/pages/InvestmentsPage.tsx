@@ -6,7 +6,7 @@ import { AddInvestmentDialog } from "@/components/forms/AddInvestmentDialog";
 import {
   PieChart, Pie, Cell, ResponsiveContainer, Tooltip, AreaChart, Area, XAxis, YAxis, CartesianGrid,
 } from "recharts";
-import { getApiUrl } from "@/lib/api";
+import { apiUrl } from "@/lib/api";
 
 interface Investment {
   _id: string;
@@ -32,7 +32,7 @@ const InvestmentsPage = () => {
   const fetchInvestments = async () => {
     try {
       const token = localStorage.getItem("token");
-      const response = await fetch(getApiUrl("/api/investments"), {
+      const response = await fetch(apiUrl("/api/investments"), {
         headers: {
           "Authorization": `Bearer ${token}`,
         },
