@@ -5,7 +5,7 @@ dotenv.config();
 
 const connectDB = async () => {
     try {
-        const mongoURI = process.env.MONGODB_URI || 'mongodb+srv://incharapjain:Inchara123@cluster0.neekh.mongodb.net/';
+        const mongoURI = process.env.MONGODB_URI || 'mongodb+srv://incharapjain:Inchara123@cluster0.neekh.mongodb.net/finvault';
 
         await mongoose.connect(mongoURI);
 
